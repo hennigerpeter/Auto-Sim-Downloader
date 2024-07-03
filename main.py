@@ -23,8 +23,8 @@ wotlk_release_file_name = 'wowsimwotlk-windows.exe.zip'
 wotlk_file_name = 'wowsimwotlk-windows.exe'
 
 # Season of Discovery
-sod_api_repo_url = 'https://api.github.com//wowsims/sod/releases/latest'
-sod_release_file_name = 'wowsimsod-windows.zip'
+sod_api_repo_url = 'https://api.github.com/repos/wowsims/sod/releases/latest'
+sod_release_file_name = 'wowsimsod-windows.exe.zip'
 sod_file_name = 'wowsimsod-windows.exe'
 
 
@@ -40,7 +40,7 @@ def fetch_release_info(repo_url):
         return response.json()
     else:
         print(f"Failed to fetch latest release. Status Code: {response.status_code}")
-        logging.error(f"Failed to fetch latest release. Status Code: {response.status_code}")
+        logging.critical(f"Failed to fetch latest release. Status Code: {response.status_code}")
         return None
 
 
@@ -76,7 +76,6 @@ def unzip_file(file):
 
 def run_sim(file):
     if file_exists(file):
-        print(file)
         os.startfile(file)
 
 
