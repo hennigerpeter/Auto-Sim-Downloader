@@ -15,7 +15,7 @@ logging.basicConfig(
 # Cataclysm
 cata_api_repo_url = 'https://api.github.com/repos/wowsims/cata/releases/latest'
 cata_release_file_name = 'wowsimcata-windows.exe.zip'
-cata_file_name = 'wowsimcata-windows.exe.exe'
+cata_file_name = 'wowsimcata-windows.exe'
 
 # Wrath of the Lich King
 wotlk_api_repo_url = 'https://api.github.com/repos/wowsims/wotlk/releases/latest'
@@ -127,12 +127,12 @@ def cataclysm():
 
 def wrath_of_the_lich_king():
     download_sim(wotlk_api_repo_url, wotlk_release_file_name, wotlk_file_name)
-    run_sim(cata_file_name)
+    run_sim(wotlk_file_name)
 
 
 def season_of_discovery():
     download_sim(sod_api_repo_url, sod_release_file_name, sod_file_name)
-    run_sim(cata_file_name)
+    run_sim(sod_file_name)
 
 
 if __name__ == "__main__":
