@@ -12,6 +12,11 @@ logging.basicConfig(
     filemode='w'
 )
 
+# Mists of Pandaria
+mop_api_repo_url = 'https://api.github.com/repos/wowsims/mop/releases/latest'
+mop_release_file_name = 'wowsimmop-windows.exe.zip'
+mop_file_name = 'wowsimmop-windows.exe'
+
 # Cataclysm
 cata_api_repo_url = 'https://api.github.com/repos/wowsims/cata/releases/latest'
 cata_release_file_name = 'wowsimcata-windows.exe.zip'
@@ -118,6 +123,9 @@ def download_sim(api_repo_url, release_file_name, file_name):
             print("Download URL not found.")
             logging.critical(f"Download URL {download_url} not found.")
 
+def mists_of_pandaria():
+    download_sim(mop_api_repo_url, mop_release_file_name, mop_file_name)
+    run_sim(mop_file_name)
 
 def cataclysm():
     download_sim(cata_api_repo_url, cata_release_file_name, cata_file_name)
@@ -135,4 +143,4 @@ def season_of_discovery():
 
 
 if __name__ == "__main__":
-    cataclysm()
+    mists_of_pandaria()
